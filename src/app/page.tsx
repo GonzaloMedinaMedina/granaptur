@@ -4,7 +4,8 @@ import { DataBaseService } from "./databaseManager/databaseService";
 async function getAds()
 {
   const dtoName = 'ad';
-  return await DataBaseService.getAllDtos(dtoName, true);
+  const dtos = await DataBaseService.getAllDtos(dtoName, true);
+  return JSON.parse(dtos);
 }
 
 export default async function Home() 
@@ -14,7 +15,7 @@ export default async function Home()
   
   if (adsInfo)
   {
-    const adsObject = JSON.parse(adsInfo);
+    const adsObject = adsInfo;
 
     ads = adsObject.map((adInfo: any) => {
       return <li className="no-dot" key={adInfo.id}>
