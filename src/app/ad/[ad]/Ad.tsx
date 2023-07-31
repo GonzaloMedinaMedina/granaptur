@@ -1,11 +1,9 @@
 import Link from 'next/link'
+import AdProperty from '@/app/adProperty/adProperty';
 
 const Ad = (props) =>
 {
-  const Bathrooms = props.adInfo.bathrooms;
-  const Beds = props.adInfo.beds;
-  const MaxPersons = props.adInfo.maxPersons;
-  const MinNights = props.adInfo.minNights;
+  const properties = props.adInfo.properties;
   const Title = props.adInfo.title;
   const Id = props.adInfo.id ? props.adInfo.id : '';
 
@@ -13,39 +11,30 @@ const Ad = (props) =>
   const url = "/ad/" + Id;
   const editableAdUrl = "/editableAd/" + Id;
 
-    const addAndApartmentInfo = 
-    <div className="inline-flex" key={Id}>
-      <div className='p-1.5 m-1 bg-amber-200 rounded-xl'>
-        {'Máx. Persons: ' + MaxPersons}
-      </div>
-      <div className='p-1.5 m-1 bg-amber-200 rounded-xl'>
-        {'Min. Nights: ' + MinNights}
-      </div>
-      <div className='p-1.5 m-1 bg-amber-200 rounded-xl'>
-        {'Beds: ' + Beds}
-      </div>
-      <div className='p-1.5 m-1 bg-amber-200 rounded-xl'>
-        {'Bathroom: ' + Bathrooms}
-      </div>
-    </div>  
-
+    const addAndApartmentInfo = properties.map(property =>
+      {
+        return <AdProperty adProperty={property}/>
+      });
+   
     const editContainer = props.editable ? 
       <a className="editButton" href={editableAdUrl}>EDIT</a>
       : null;
 
     return (
       <Link href={url}>  
-        <div className="m-1 p-1 bg-[#89a6bf] rounded-xl">
+        <div className="m-5 p-1 bg-[#89a6bf] rounded-xl">
             <h1 className='text-center text-clamp'>{Title}</h1>         
-            <div className='flex'>
+            <div className='block sm:inline-flex'>
                 <div className='p-1'>
-                    <img className="w-fit" src={Pictures[0]}></img>
+                    <img className="w-fit my-0 mx-auto" src={Pictures[0]}></img>
                 </div> 
                 <br className='clear-both'/>
                 <div className="flex p-1">
                     <div className='p-1'>      
                         <br></br>        
+                        <div className="grid grid-cols-3 grid-rows-3 sm:inline-flex" key={Id}>
                         {addAndApartmentInfo}
+                        </div>
                     </div>
                 </div>
                 {editContainer} 
