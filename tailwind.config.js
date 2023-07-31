@@ -20,10 +20,10 @@ module.exports = {
           '100%': 'transform: scale(1.5)'         
         }
       },
-      animation: {
-        
+      fontSize: {
+        clamp: 'clamp(20px, 1rem + 2vw, 30px)'
       }
-    },
+    }
   },
   plugins: [],
 }

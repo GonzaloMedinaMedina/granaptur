@@ -15,21 +15,19 @@ const Ad = (props) =>
 
     const addAndApartmentInfo = 
     <div className="inline-flex" key={Id}>
-      <div className='Box NavaJoWhite'>
+      <div className='p-1.5 m-1 bg-amber-200 rounded-xl'>
         {'Máx. Persons: ' + MaxPersons}
       </div>
-      <div className='Box NavaJoWhite'>
+      <div className='p-1.5 m-1 bg-amber-200 rounded-xl'>
         {'Min. Nights: ' + MinNights}
       </div>
-      <div className='Box NavaJoWhite'>
+      <div className='p-1.5 m-1 bg-amber-200 rounded-xl'>
         {'Beds: ' + Beds}
       </div>
-      <div className='Box NavaJoWhite'>
+      <div className='p-1.5 m-1 bg-amber-200 rounded-xl'>
         {'Bathroom: ' + Bathrooms}
       </div>
     </div>  
-
-    const title = <h1>{Title}</h1>;
 
     const editContainer = props.editable ? 
       <a className="editButton" href={editableAdUrl}>EDIT</a>
@@ -37,19 +35,21 @@ const Ad = (props) =>
 
     return (
       <Link href={url}>  
-        <div className="Ad padding">
-          <div className='split center'>
-          <img className="picture" src={Pictures[0]}></img>
-          </div> 
-          <br className='clear'/>
-          <div className="AdContainer">
-            <div  className='split'>      
-              {title}           
-              <br></br>        
-              {addAndApartmentInfo}
+        <div className="m-1 p-1 bg-[#89a6bf] rounded-xl">
+            <h1 className='text-center text-clamp'>{Title}</h1>         
+            <div className='flex'>
+                <div className='p-1'>
+                    <img className="w-fit" src={Pictures[0]}></img>
+                </div> 
+                <br className='clear-both'/>
+                <div className="flex p-1">
+                    <div className='p-1'>      
+                        <br></br>        
+                        {addAndApartmentInfo}
+                    </div>
+                </div>
+                {editContainer} 
             </div>
-          </div>
-          {editContainer} 
         </div>
       </Link>
     );

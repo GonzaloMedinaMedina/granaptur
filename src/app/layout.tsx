@@ -12,7 +12,7 @@ export default function RootLayout({
       <body className='min-w-full min-h-full bg-white'>
         <NavBar/>
         <hr></hr>
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center justify-between">
           {children}
         </main>
       </body>
