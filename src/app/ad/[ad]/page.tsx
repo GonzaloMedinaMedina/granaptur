@@ -1,4 +1,4 @@
-import SlidePicture from '@/app/slidePicture/slidePicture';
+import SlidePicture from '@/app/components/slidePicture/slidePicture';
 import AdProperty from '@/app/adProperty/adProperty';
 import { DataBaseService } from '@/app/databaseManager/databaseService';
 

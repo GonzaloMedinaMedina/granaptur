@@ -1,7 +1,6 @@
 'use client'
-import Link from 'next/link'
-import AdProperty from '@/app/adProperty/adProperty';
-import SlidePicture from '@/app/slidePicture/slidePicture';
+import AdProperty from './adProperty';
+import SlidePicture from './slidePicture/slidePicture';
 import { useRouter } from 'next/navigation';
 
 const Ad = (props) =>
@@ -11,7 +10,7 @@ const Ad = (props) =>
   const Title = props.adInfo.title;
   const Id = props.adInfo.id ? props.adInfo.id : '';
 
-  const Pictures = props.adInfo.pictures;
+  const pictures = props.adInfo.pictures;
   const url = "/ad/" + Id;
   const editableAdUrl = "/editableAd/" + Id;
 
@@ -26,7 +25,7 @@ const Ad = (props) =>
 
   const handleClick = (e) =>
   {
-      e.preventDefault();
+    e.preventDefault();
     if(!(e!.target!.name === 'arrow' || e!.target!.id === 'arrow'))
       router.push(url);
   }
@@ -36,7 +35,7 @@ const Ad = (props) =>
       <div className="m-5 p-1 bg-[#89a6bf] rounded-xl">
           <h1 className='text-center text-clamp'>{Title}</h1>         
           <div className='block sm:inline-flex'>
-              <SlidePicture pictures={Pictures}/>
+              <SlidePicture pictures={pictures}/>
               <br className='clear-both'/>
               <div className="flex p-1">
                   <div className='p-1'>      

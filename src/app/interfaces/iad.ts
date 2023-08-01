@@ -1,5 +1,5 @@
-import { iadProperty } from "@/app/adProperty/iadProperty";
-import { idto } from "@/app/databaseManager/idto";
+import { iadProperty } from "@/app/interfaces/iadProperty";
+import { idto } from "@/app/interfaces/idto";
 
 export interface iad extends idto
 {

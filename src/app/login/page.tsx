@@ -1,5 +1,5 @@
 'use client'
-import TextInput from "../TextInput/TextInput";
+import TextInput from "../components/textInput";
 import { useState } from "react";
 import { RequestUtils } from "../requestUtils";
 

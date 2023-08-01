@@ -1,4 +1,4 @@
-import Ad from "./ad/[ad]/Ad";
+import Ad from "./components/ad";
 import { DataBaseService } from "./databaseManager/databaseService";
 
 async function getAds()

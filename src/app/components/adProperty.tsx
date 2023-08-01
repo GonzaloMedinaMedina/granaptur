@@ -1,4 +1,4 @@
-import { iadProperty } from "./iadProperty";
+import { iadProperty } from "../interfaces/iadProperty";
 
 export default function AdProperty({adProperty} : {adProperty: iadProperty})
 {

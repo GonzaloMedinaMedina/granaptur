@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import { idto } from './idto';
+import { idto } from '../interfaces/idto';
 
 const url = "mongodb://127.0.0.1:27017/";
 const dbname = "tamdb";
