@@ -23,6 +23,9 @@ module.exports = {
       fontSize: {
         clamp: 'clamp(20px, 1rem + 2vw, 30px)'
       }
+    },
+    boxShadow: {
+      description: '0 5px 10px 1px rgb(0 0 0 / 25%), 0 3px 10px 5px rgb(0 0 0 / 5%)'
     }
   },
   plugins: [],
