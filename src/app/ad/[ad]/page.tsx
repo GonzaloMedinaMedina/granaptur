@@ -1,6 +1,8 @@
 import SlidePicture from '@/app/components/slidePicture/slidePicture';
-import AdProperty from '@/app/adProperty/adProperty';
+import AdProperty from '@/app/components/adProperty';
+import AdTitle from '@/app/components/adTitle';
 import { DataBaseService } from '@/app/databaseManager/databaseService';
+import { useRouter } from 'next/router'
 
 async function getAd(id:string)
 {
@@ -9,9 +11,9 @@ async function getAd(id:string)
     return JSON.parse(dto);
 }
 
-export default async function AdPage() {
-
-    const adInfo = await getAd('mercao');
+export default async function AdPage({params}: {params: {ad: string}}) 
+{
+    const adInfo = await getAd(params.ad);
     const properties = adInfo.properties;
 
     const addAndApartmentInfo = properties.map(property => {
@@ -19,8 +21,8 @@ export default async function AdPage() {
     });
 
     return (
-        <div className="m-10 rounded-xl bg-[#89a6bf] items-center flex-col flex">
-            <h1 className='text-center text-clamp'>{adInfo.title}</h1>
+        <div className="m-10 rounded-xl bg-[#7197b3] items-center flex-col flex">
+            <AdTitle title={adInfo.title}/>
             <br></br>
             <SlidePicture pictures={adInfo.pictures}/>
             <br></br>
@@ -28,7 +30,7 @@ export default async function AdPage() {
                 {addAndApartmentInfo}
             </div>
             <br></br>
-            <div className="Section padding Icon">
+            <div className=" bg-[#dbe8f5] rounded-xl p-5 m-5 shadow-description">
                 <p>{adInfo.description}</p>
             </div>
         </div>

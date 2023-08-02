@@ -1,5 +1,6 @@
 'use client'
 import AdProperty from './adProperty';
+import AdTitle from './adTitle';
 import SlidePicture from './slidePicture/slidePicture';
 import { useRouter } from 'next/navigation';
 
@@ -7,7 +8,6 @@ const Ad = (props) =>
 {
   const router = useRouter();
   const properties = props.adInfo.properties;
-  const Title = props.adInfo.title;
   const Id = props.adInfo.id ? props.adInfo.id : '';
 
   const pictures = props.adInfo.pictures;
@@ -20,7 +20,7 @@ const Ad = (props) =>
   });
    
   const editContainer = props.editable ? 
-    <a className="editButton" href={editableAdUrl}>EDIT</a>
+    <a className=" bg-green-500 p-5 rounded-xl" href={editableAdUrl}>EDIT</a>
     : null;
 
   const handleClick = (e) =>
@@ -31,24 +31,24 @@ const Ad = (props) =>
   }
     
   return (
-    <a href={url} onClick={handleClick}>  
-      <div className="m-5 p-1 bg-[#89a6bf] rounded-xl">
-          <h1 className='text-center text-clamp'>{Title}</h1>         
-          <div className='block sm:inline-flex'>
-              <SlidePicture pictures={pictures}/>
-              <br className='clear-both'/>
-              <div className="flex p-1">
-                  <div className='p-1'>      
-                      <br></br>        
-                      <div className="grid grid-cols-3 grid-rows-3 sm:inline-flex" key={Id}>
-                      {addAndApartmentInfo}
-                      </div>
-                  </div>
+    <div className="my-20 mx-60 p-1 bg-[#89a6bf] rounded-xl">
+      <a href={url} onClick={handleClick}>
+        <AdTitle title={props.adInfo.title} />
+        <div className='block sm:inline-flex'>
+          <SlidePicture pictures={pictures} />
+          <br className='clear-both' />
+          <div className="flex p-1">
+            <div className='p-1'>
+              <br></br>
+              <div className="grid grid-cols-3 grid-rows-3 sm:inline-flex" key={Id}>
+                {addAndApartmentInfo}
               </div>
-              {editContainer} 
+            </div>
           </div>
-      </div>
-    </a>
+        </div>
+      </a>
+      {editContainer}
+    </div>
   );
 }
 export default Ad;
