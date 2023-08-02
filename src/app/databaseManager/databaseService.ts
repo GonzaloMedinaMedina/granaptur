@@ -41,24 +41,6 @@ export class DataBaseService
 
         return await this.db.collection(dtoName)
     }
-    
-    static async listColumns()
-    {
-        if(!this.db)
-            await this.accessToDB();
-        
-        const collection = this.db.collection("ad");
-    }
-
-    static async addDefaultColumnsToDocument(collectionName: string)
-    {
-        if (!this.db)
-            await this.accessToDB();
-
-        const collection = this.db.collection(collectionName)
-        await collection.updateMany({ property_type: { $exists: false } }, { $set: { property_type: "Unknown" } })
-
-    }
 
     static async createDefaultCollection(collectionName: string, columns: Array<any>)
     {
@@ -100,13 +82,11 @@ export class DataBaseService
         }
         finally
         {
-            if (toJson)
-                return this.getJsonDto(dtos);
-            return dtos;
+            return this.returnDto(toJson, dtos)
         }
     }
 
-    static async getDtoInfo(dtoId: string, dtoName: string, toJson = false)
+    static async getDtoInfo(dtoId: string, dtoName: string, toJson: boolean = false)
     {
         var dto;
 
@@ -121,21 +101,21 @@ export class DataBaseService
         }
         finally
         {
-            if (toJson)
-                return this.getJsonDto(dto);
-            return dto;
+            return this.returnDto(toJson, dto);
         }
     }
 
-    static async checkDtoExists(dtoId: string, dtoName: string, toJson = false)
+    static async checkDtoExists(dtoId: string, dtoName: string)
     {
-        var dto = await this.getDtoInfo(dtoId, dtoName, toJson = false);
+        var dto = await this.getDtoInfo(dtoId, dtoName);
         return dto !== undefined && dto !== null;
     }
 
-    static getJsonDto(dto: string)
+    static returnDto(toString: boolean, dto: string)
     {
-        return JSON.stringify(dto);
+        if (toString)
+            return JSON.stringify(dto);
+        return dto;
     }
 
     // static async createDto(dtoName, dtoObjects)
