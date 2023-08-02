@@ -1,17 +1,12 @@
-import { DataBaseService } from '@/app/databaseManager/databaseService';
 import { NextResponse } from 'next/server'
+import { UserService } from '@/app/userService/userService';
 
 export async function POST(req: Request) 
 {
     const data = await req.json();
+    let userService: UserService = new UserService();
 
-    var result = await DataBaseService.checkDtoExists(data.user, 'user', data.pass);
-    var accessToken;
-
-    if (result)
-    {
-        accessToken = 'success';
-    }
+    const accessToken = await userService.checkUserCredentials(data);
 
     return NextResponse.json({ token: accessToken })
 }
