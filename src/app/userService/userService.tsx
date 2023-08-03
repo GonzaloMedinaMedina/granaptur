@@ -32,7 +32,10 @@ export class UserService
         if (typeof(user.token) === 'string' && user.token.includes('access_token'))
         {
             let token:string = user.token.replace('access_token=','');
-            return jwt.verify(token,'credentials');
+            let verification = jwt.verify(token,'credentials');
+            let result:boolean =  verification?.id !== undefined && verification?.password !== undefined;
+            let statusCode = result ? 200 : 500;
+            return { success: result , status: statusCode}
         }
 
         let validCredentials: boolean = true;
@@ -51,9 +54,9 @@ export class UserService
 
         if (validCredentials)
         {
-            return jwt.sign({id: user.id, password: user.password}, 'credentials', { expiresIn: '1h' });
+            return {  token: jwt.sign({id: user.id, password: user.password}, 'credentials', { expiresIn: '1h' }) ,  status: 200 }
         }
 
-        return null;
+        return { error: 'Invalid credentials.', status: 500 }
     }
 }
