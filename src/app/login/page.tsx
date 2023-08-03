@@ -69,8 +69,8 @@ export default function LogIn()
                 />
                 <TextInput 
                     setText={setPassword}
-                    hideInput = {true}
                     label="Password"
+                    hideInput = {true}
                 />
                 <button className='rounded-lg p-1 self-center w-fit h-fit bg-sky-200 justify-center' onClick={() => {login()}}>Log in</button>
             </div>

@@ -1,15 +1,15 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 
 interface iTextInput
 {
     setText: any, 
-    hideInput:boolean,
-    initValue: string,
-    width: string,
-    label: string
+    hideInput?:boolean,
+    initValue?: string,
+    width?: string,
+    label?: string
 }
 
-const TextInput: React.FC<iTextInput> = ( {setText , hideInput, initValue, width, label}) =>
+const TextInput: FunctionComponent<iTextInput> = ({setText, label = '', hideInput = false, initValue = '', width = 'auto'}) =>
 {
     const inputType: string = hideInput === true ? "password" : "text";
     var inputComponent;
