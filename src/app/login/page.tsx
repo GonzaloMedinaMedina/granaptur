@@ -1,16 +1,47 @@
 'use client'
 import TextInput from "../components/textInput";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RequestUtils } from "../requestUtils";
 
 export default function LogIn() 
 {
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
+    const url = 'login';
+
+    const navigateToAdminPage = (data: any) =>
+    {
+        if (data.success)
+        {
+            location.replace("/admin");
+        }
+        else if (data.token !== undefined && data.token !== null)
+        {
+            document.cookie=`access_token=${data.token}`;
+            location.replace("/admin");
+        }
+        else
+        {
+            alert('Error al iniciar sesión. Compruebe las credenciales')
+        }
+    }
+
+    useEffect(() =>
+    {
+        if (document?.cookie.includes('access_token'))
+        {
+            let credentials: any =
+            {
+                token: document.cookie
+            }
+
+            RequestUtils.postRequest(url, credentials, navigateToAdminPage);
+        }
+    }, 
+    [])
 
     async function login()
     {
-        const url = 'login';
         const encoder = new TextEncoder();
         const data = encoder.encode(password);
   
@@ -23,19 +54,6 @@ export default function LogIn()
             "id": user, 
             "password": hashHex,
             "token": document.cookie
-        }
-        
-        const navigateToAdminPage = (data: any) =>
-        {
-            if (data.token !== undefined && data.token !== null)
-            {
-                document.cookie=`access_token=${data.token}`;
-                location.replace("/admin");
-            }
-            else
-            {
-                alert('Error al iniciar sesión. Compruebe las credenciales')
-            }
         }
 
         await RequestUtils.postRequest(url, credentials, navigateToAdminPage);
