@@ -2,7 +2,6 @@ import SlidePicture from '@/app/components/slidePicture/slidePicture';
 import AdProperty from '@/app/components/adProperty';
 import AdTitle from '@/app/components/adTitle';
 import { DataBaseService } from '@/app/databaseManager/databaseService';
-import { useRouter } from 'next/router'
 
 async function getAd(id:string)
 {
