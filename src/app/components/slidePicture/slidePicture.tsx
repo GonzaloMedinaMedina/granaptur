@@ -26,7 +26,9 @@ export default function SlidePicture({pictures} : {pictures : Array<any>})
         <button name="arrow" className="invisible absolute group-hover:visible flex items-center w-10 h-10 left-2 bg-white rounded-full" onClick={(e) => {changePictureIndex(-1)}}>
             <div id="arrow"  className="my-0 mx-auto">&#10094;</div>
         </button>
-        <img className="w-fit flex-1 object-contain	max-w-[320px]" src={pictures[pictureIndex]}></img>
+        <div className="flex h-[200px] w-[300px]">
+            <img className="object-contain flex-1" src={pictures[pictureIndex]}></img>
+        </div>
         <button name="arrow" className="invisible absolute group-hover:visible flex items-center w-10 h-10 right-2 bg-white rounded-full" onClick={(e) => {changePictureIndex(+1)}}>
             <div id="arrow" className="my-0 mx-auto">&#10095;</div>
         </button>
