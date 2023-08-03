@@ -1,6 +1,15 @@
 import React from "react";
 
-const TextInput = ( setText: any , hideInput:boolean = false, initValue: string = '', width: string = 'auto', label: string = '') =>
+interface iTextInput
+{
+    setText: any, 
+    hideInput:boolean,
+    initValue: string,
+    width: string,
+    label: string
+}
+
+const TextInput: React.FC<iTextInput> = ( {setText , hideInput, initValue, width, label}) =>
 {
     const inputType: string = hideInput === true ? "password" : "text";
     var inputComponent;
