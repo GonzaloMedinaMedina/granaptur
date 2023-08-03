@@ -20,7 +20,7 @@ const Ad = (props) =>
   });
    
   const editContainer = props.editable ? 
-    <a className=" bg-green-500 p-5 rounded-xl" href={editableAdUrl}>EDIT</a>
+    <a className=" m-5 p-2 border rounded-lg drop-shadow-lg transition ease-in-out hover:scale-150 bg-green-200 hover:bg-green-500 duration-300" href={editableAdUrl}>EDITAR</a>
     : null;
 
   const handleClick = (e) =>
@@ -31,23 +31,28 @@ const Ad = (props) =>
   }
     
   return (
-    <div className="my-20 mx-60 p-1 bg-[#89a6bf] rounded-xl">
-      <a href={url} onClick={handleClick}>
-        <AdTitle title={props.adInfo.title} />
-        <div className='block sm:inline-flex'>
-          <SlidePicture pictures={pictures} />
-          <br className='clear-both' />
-          <div className="flex p-1">
-            <div className='p-1'>
-              <br></br>
-              <div className="grid grid-cols-3 grid-rows-3 sm:inline-flex" key={Id}>
-                {addAndApartmentInfo}
+
+    <div className=" flex my-20 mx-10 sm:mx-60 p-1 bg-[#89a6bf] rounded-xl">
+      <div>
+        <a href={url} onClick={handleClick}>
+          <AdTitle title={props.adInfo.title} />
+          <div className='block sm:inline-flex'>
+            <SlidePicture pictures={pictures} />
+            <br className='clear-both' />
+            <div className="flex p-1">
+              <div className='p-1'>
+                <br></br>
+                <div className="grid grid-cols-3 grid-rows-3 sm:inline-flex" key={Id}>
+                  {addAndApartmentInfo}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </a>
-      {editContainer}
+        </a>
+      </div>
+      <div className='flex self-center float-right'>
+        {editContainer}
+      </div>
     </div>
   );
 }
