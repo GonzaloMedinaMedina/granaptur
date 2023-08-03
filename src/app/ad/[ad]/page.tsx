@@ -2,6 +2,7 @@ import SlidePicture from '@/app/components/slidePicture/slidePicture';
 import AdProperty from '@/app/components/adProperty';
 import AdTitle from '@/app/components/adTitle';
 import { DataBaseService } from '@/app/databaseManager/databaseService';
+import { iadProperty } from '@/app/interfaces/iadProperty';
 
 async function getAd(id:string)
 {
@@ -13,7 +14,7 @@ async function getAd(id:string)
 export default async function AdPage({params}: {params: {ad: string}}) 
 {
     const adInfo = await getAd(params.ad);
-    const properties = adInfo.properties;
+    const properties: Array<iadProperty> = adInfo.properties;
 
     const addAndApartmentInfo = properties.map(property => {
         return <AdProperty key={property.name + adInfo.id} adProperty={property} />

@@ -29,7 +29,7 @@ export default async function Home()
 
   return (
     <>
-    {ads === undefined ? '' : <ul>{ads}</ul>}
+      {ads === undefined ? '' : <ul>{ads}</ul>}
     </>
   )
 }

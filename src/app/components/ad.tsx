@@ -1,16 +1,23 @@
 'use client'
+import { iadProperty } from '../interfaces/iadProperty';
 import AdProperty from './adProperty';
 import AdTitle from './adTitle';
 import SlidePicture from './slidePicture/slidePicture';
 import { useRouter } from 'next/navigation';
 
-const Ad = (props) =>
+interface iAd
+{
+  adInfo: any,
+  editable: boolean
+}
+
+const Ad: React.FC<iAd> = ({adInfo, editable}) =>
 {
   const router = useRouter();
-  const properties = props.adInfo.properties;
-  const Id = props.adInfo.id ? props.adInfo.id : '';
+  const properties: Array<iadProperty> = adInfo.properties;
+  const Id = adInfo.id ? adInfo.id : '';
 
-  const pictures = props.adInfo.pictures;
+  const pictures = adInfo.pictures;
   const url = "/ad/" + Id;
   const editableAdUrl = "/editableAd/" + Id;
 
@@ -19,11 +26,11 @@ const Ad = (props) =>
     return <AdProperty key={property.name + Id} adProperty={property}/>
   });
    
-  const editContainer = props.editable ? 
+  const editContainer = editable ? 
     <a className=" m-5 p-2 border rounded-lg drop-shadow-lg transition ease-in-out hover:scale-150 bg-green-200 hover:bg-green-500 duration-300" href={editableAdUrl}>EDITAR</a>
     : null;
 
-  const handleClick = (e) =>
+  const handleClick = (e: any) =>
   {
     e.preventDefault();
     if(!(e!.target!.name === 'arrow' || e!.target!.id === 'arrow'))
@@ -35,7 +42,7 @@ const Ad = (props) =>
     <div className=" flex my-20 mx-10 sm:mx-60 p-1 bg-[#89a6bf] rounded-xl">
       <div>
         <a href={url} onClick={handleClick}>
-          <AdTitle title={props.adInfo.title} />
+          <AdTitle title={adInfo.title} />
           <div className='block sm:inline-flex'>
             <SlidePicture pictures={pictures} />
             <br className='clear-both' />

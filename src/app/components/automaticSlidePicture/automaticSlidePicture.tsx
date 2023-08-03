@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect, useRef } from "react"
 export default function AutomaticSlidePicture({pictures} : {pictures : Array<any>})
 {
     const [pictureIndex, setPictureIndex] = useState(0)
-    const timeoutRef = useRef(null);
+    const timeoutRef:any = useRef(null);
 
     const resetTimeout = useCallback(() => 
     {

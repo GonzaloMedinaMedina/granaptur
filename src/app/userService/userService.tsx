@@ -7,7 +7,7 @@ const ONE_HOUR_IN_MS = 3600000;
 
 export class UserService
 {
-    static userCache: cache.Cache = null;
+    static userCache: any = null;
 
     constructor()
     {
