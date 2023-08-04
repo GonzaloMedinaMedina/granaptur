@@ -1,4 +1,5 @@
 import Ad from "../components/ad";
+import CreateNewAdContainer from "../components/createNewAdContainer";
 import { DataBaseService } from "../databaseManager/databaseService";
 
 async function getAds()
@@ -29,6 +30,7 @@ export default async function Admin()
 
   return (
     <>
+    <CreateNewAdContainer/>
     {ads === undefined ? '' : <ul>{ads}</ul>}
     </>
   )
