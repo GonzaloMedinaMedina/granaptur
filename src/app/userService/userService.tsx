@@ -27,36 +27,39 @@ export class UserService
         UserService.userCache.put(user.id, user, ONE_HOUR_IN_MS);
     }
 
-    checkUserCredentials = async (user: any): Promise<any> =>
+    validUserToken = (user:any):boolean =>
     {
         if (typeof(user.token) === 'string' && user.token.includes('access_token'))
         {
             let token:string = user.token.replace('access_token=','');
             let verification = jwt.verify(token,'credentials');
             let result:boolean =  verification?.id !== undefined && verification?.password !== undefined;
-            let statusCode = result ? 200 : 500;
-            return { success: result , status: statusCode}
+
+            return result;
         }
 
-        let validCredentials: boolean = true;
+        return false;
+    }
+
+    generateUserToken = (user:any):any =>
+    {
+        return jwt.sign({id: user.id, password: user.password}, 'credentials', { expiresIn: '1h' })
+    }
+
+    checktUserCredentials = async (user: any): Promise<boolean> =>
+    {
         const cachedUserCredentials = this.getCachedUserCredentials(user);
 
         if (cachedUserCredentials === null || cachedUserCredentials === undefined)
         {
-            validCredentials = false;
             const userDto: iuser = await DataBaseService.getDtoInfo(user.id, 'user') as unknown as iuser;
             if (userDto?.password === user?.password)
             {
-                validCredentials = true;
                 this.setCachedUserCredentials(user);
+                return true;
             }
         }       
 
-        if (validCredentials)
-        {
-            return {  token: jwt.sign({id: user.id, password: user.password}, 'credentials', { expiresIn: '1h' }) ,  status: 200 }
-        }
-
-        return { error: 'Invalid credentials.', status: 500 }
+        return false;
     }
 }
