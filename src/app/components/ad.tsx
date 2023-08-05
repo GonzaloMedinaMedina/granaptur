@@ -16,7 +16,7 @@ const Ad: React.FC<iAd> = ({adInfo, editable}) =>
 {
   const router = useRouter();
   const properties: Array<iadProperty> = adInfo.properties;
-  const Id = adInfo.id ? adInfo.id : '';
+  const Id = adInfo!['_id'] ? adInfo!['_id'] : '';
 
   const pictures = adInfo.pictures;
   const url = "/ad/" + Id;
