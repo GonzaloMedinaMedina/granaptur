@@ -4,6 +4,7 @@ import AdProperty from './adProperty';
 import AdTitle from './adTitle';
 import SlidePicture from './slidePicture/slidePicture';
 import { useRouter } from 'next/navigation';
+import { useCallback } from "react"
 
 interface iAd
 {
@@ -25,9 +26,20 @@ const Ad: React.FC<iAd> = ({adInfo, editable}) =>
   {
     return <AdProperty key={property.name + Id} adProperty={property}/>
   });
-   
+
+  const removeAdFn = useCallback((e: any) => 
+  {
+
+  }, [])
+
   const editContainer = editable ? 
     <a className=" m-5 p-2 border rounded-lg drop-shadow-lg transition ease-in-out hover:scale-150 bg-green-200 hover:bg-green-500 duration-300" href={editableAdUrl}>EDITAR</a>
+    : null;
+
+  const removeAd = editable ?
+    <div className='cursor-pointer absolute h-10 w-10 -right-2 -top-2 rounded-full bg-black flex justify-center items-center' onClick={(e) => {removeAdFn(e)}}>
+      <div className='relative text-3xl text-white'>X</div>
+    </div>
     : null;
 
   const handleClick = (e: any) =>
@@ -39,7 +51,8 @@ const Ad: React.FC<iAd> = ({adInfo, editable}) =>
     
   return (
 
-    <div className=" flex my-20 mx-10 sm:mx-60 p-1 bg-[#89a6bf] rounded-xl">
+    <div className="relative flex my-20 mx-10 sm:mx-60 p-1 bg-[#89a6bf] rounded-xl">
+      {removeAd}
       <div>
         <a href={url} onClick={handleClick}>
           <AdTitle title={adInfo.title} />
