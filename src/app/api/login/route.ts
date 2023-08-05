@@ -5,8 +5,21 @@ export async function POST(req: Request)
 {
     const data = await req.json();
     let userService: UserService = new UserService();
+    let result: any;
+    let validUserToken = userService.validUserToken(data);
 
-    const result = await userService.checkUserCredentials(data);
+    if (validUserToken)
+    {
+        result = { success: validUserToken , status: validUserToken ? 200 : 500 }        
+    }
+    else if (await userService.checktUserCredentials(data))
+    {
+        result = { token: userService.generateUserToken(data), status: 200 };
+    }
+    else
+    {
+        result = { error: 'Invalid credentials.', status: 500 };
+    }
 
     return NextResponse.json(result)
 }
