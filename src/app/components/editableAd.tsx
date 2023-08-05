@@ -5,13 +5,23 @@ import { RequestUtils } from '../requestUtils';
 import { iadProperty } from '../interfaces/iadProperty';
 import AdProperty from './adProperty';
 
-export default function EditableAd(adInfo: any)
+export default function EditableAd({adInfo} : {adInfo: any})
 {
-    const [adTitle, setTitle] = useState(adInfo.title);
-    const properties: Array<iadProperty> = adInfo.properties;
+    var title: string = '',
+      properties: Array<iadProperty> = [],
+      id: string = '';
 
-    const addAndApartmentInfo = properties.map(property => {
-        return <AdProperty key={property.name + adInfo.id} adProperty={property} />
+    if (adInfo?.id !== undefined && adInfo?.id !== 'new')
+    {
+      title = adInfo.id;
+      properties = adInfo.properties;
+      id = adInfo.id;
+    }
+
+    const [adTitle, setTitle] = useState(title);
+
+    const AdProperties = properties.map(property => {
+        return <AdProperty key={property.name + id} adProperty={property} />
     }); 
 
     const onSaveFunc = async () =>
@@ -30,10 +40,10 @@ export default function EditableAd(adInfo: any)
     const getAdInfo = (): any => 
     {
       return {
-        id: adInfo.id,
+        id: id,
         columns:
         { 
-          title: adInfo.title, 
+          title: title, 
           pictures: getPicturesData() 
         }      
       };
@@ -49,5 +59,6 @@ export default function EditableAd(adInfo: any)
     return ( <div className="m-10 rounded-xl bg-[#7197b3] items-center flex-col flex">
         <button id="saveChanges" className='saveChanges' onClick={() => {onSaveFunc()}}>Save</button>
         <TextInput setText={setTitle} initValue={adTitle} width='100%'/>
+        {AdProperties}
     </div>)
 }
