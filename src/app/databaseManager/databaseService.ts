@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 import { idto } from '../interfaces/idto';
 
 const url = "mongodb://127.0.0.1:27017/";
@@ -9,9 +9,7 @@ export class DataBaseService
     static db: any;
     static client: any;
 
-    constructor()
-    {
-    }
+    constructor(){}
 
     static async connect()
     {
@@ -93,7 +91,7 @@ export class DataBaseService
         try
         {
             const dtoCollection = await this.getDtoCollection(dtoName);
-            const query = { id: dtoId};
+            const query = { _id: new ObjectId(dtoId) };
             dto = await dtoCollection.findOne(query);
         } catch (e)
         {
