@@ -1,13 +1,31 @@
 'use client'
 import { useCallback } from "react"
 import { useRouter } from 'next/navigation';
+import { RequestUtils } from "../requestUtils";
 
-export default function createNewAdContainer({})
+export default function CreateNewAdContainer()
 {
     const router = useRouter();
+
+    const navigateToNewAd = (data: any): void => 
+    {
+        if (data.status === 200)
+        {
+            location.replace("/editableAd/" + data['_id']);
+        }
+    }
+
     const createNewAd = useCallback((e:any) => 
     {
-        router.push('/editableAd/new')
+        if (document?.cookie.includes('access_token'))
+        {
+            let credentials: any =
+            {
+                token: document.cookie
+            }
+
+            RequestUtils.postRequest('ad', credentials, navigateToNewAd);
+        }
     },[])
 
     return(
