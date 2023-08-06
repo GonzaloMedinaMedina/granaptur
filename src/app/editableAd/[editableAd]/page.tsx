@@ -4,7 +4,9 @@ import { DataBaseService } from "@/app/databaseManager/databaseService";
 async function getAd(id:string)
 {
     const dtoName = 'ad';
-    const dto = await DataBaseService.getDtoInfo(id, dtoName, true);
+    const query = { id: id};
+    const dto = await DataBaseService.getDtoInfo(query, dtoName, true);
+
     return JSON.parse(dto);
 }
 
