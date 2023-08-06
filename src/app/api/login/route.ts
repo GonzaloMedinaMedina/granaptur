@@ -3,6 +3,7 @@ import { UserService } from '@/app/userService/userService';
 
 export async function POST(req: Request) 
 {
+    return NextResponse.json({status: 200});
     const data = await req.json();
     let userService: UserService = new UserService();
     let result: any;
