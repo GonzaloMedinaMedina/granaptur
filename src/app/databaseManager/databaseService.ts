@@ -84,14 +84,24 @@ export class DataBaseService
         }
     }
 
-    static async getDtoInfo(dtoId: string, dtoName: string, toJson: boolean = false)
+    static async getDtoById(dtoId: string, dtoName: string, toJson: boolean = false)
+    {
+        const query = { _id: new ObjectId(dtoId) };
+        return await this.getDtoInfo(query, dtoName, toJson);
+    }
+
+    static async getDtoByQuery(query: object, dtoName: string, toJson: boolean = false)
+    {    
+        return await this.getDtoInfo(query, dtoName, toJson);
+    }
+
+    static async getDtoInfo(query: object, dtoName: string, toJson: boolean = false)
     {
         var dto;
 
         try
         {
             const dtoCollection = await this.getDtoCollection(dtoName);
-            const query = { _id: new ObjectId(dtoId) };
             dto = await dtoCollection.findOne(query);
         } catch (e)
         {
@@ -103,11 +113,11 @@ export class DataBaseService
         }
     }
 
-    static async checkDtoExists(dtoId: string, dtoName: string)
-    {
-        var dto = await this.getDtoInfo(dtoId, dtoName);
-        return dto !== undefined && dto !== null;
-    }
+    // static async checkDtoExists(dtoId: string, dtoName: string)
+    // {
+    //     var dto = await this.getDtoInfo(dtoId, dtoName);
+    //     return dto !== undefined && dto !== null;
+    // }
 
     static returnDto(toString: boolean, dto: string)
     {
@@ -116,10 +126,12 @@ export class DataBaseService
         return dto;
     }
 
-    // static async createDto(dtoName, dtoObjects)
-    // {
-    //     await this.getDtoCollection(dtoName).insertMany(dtoObjects);
-    // }
+    static async createDto(dtoName: string, dtoObject: object)
+    {
+        const dtoCollection = await this.getDtoCollection(dtoName);
+        const result = await dtoCollection.insertOne(dtoObject);
+        return result.insertedId;
+    }
 
     static async saveDto(dtoName: string, dtoInfo: idto)
     {
