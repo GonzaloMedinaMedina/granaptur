@@ -43,7 +43,21 @@ export class UserService
 
     generateUserToken = (user:any):any =>
     {
-        return jwt.sign({id: user.id, password: user.password}, 'credentials', { expiresIn: '1h' })
+        let result: any;
+
+        try
+        {
+            result = jwt.sign({id: user.id, password: user.password}, 'credentials', { expiresIn: '1h' })
+        }
+        catch(exception)
+        {
+            console.error(exception);
+            result = false;
+        }
+        finally
+        {
+            return result;
+        }
     }
 
     checktUserCredentials = async (user: any): Promise<boolean> =>
@@ -52,7 +66,9 @@ export class UserService
 
         if (cachedUserCredentials === null || cachedUserCredentials === undefined)
         {
-            const userDto: iuser = await DataBaseService.getDtoInfo(user.id, 'user') as unknown as iuser;
+            const query = { id: user.id };
+            const userDto: iuser = await DataBaseService.getDtoInfo(query, 'user') as unknown as iuser;
+
             if (userDto?.password === user?.password)
             {
                 this.setCachedUserCredentials(user);
