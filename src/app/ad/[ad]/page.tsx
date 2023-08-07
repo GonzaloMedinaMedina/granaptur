@@ -7,8 +7,7 @@ import { iadProperty } from '@/app/interfaces/iadProperty';
 async function getAd(id:string)
 {
     const dtoName = 'ad';
-    const query = { id: id };
-    const dto = await DataBaseService.getDtoByQuery(query, dtoName, true);
+    const dto = await DataBaseService.getDtoById(id, dtoName, true);
     return JSON.parse(dto);
 }
 
