@@ -1,7 +1,7 @@
 'use client'
 import { useState, useCallback, useEffect, useRef } from "react"
 
-export default function AutomaticSlidePicture({pictures} : {pictures : Array<any>})
+export default function AutomaticSlidePicture({headerInfo} : {headerInfo : Array<any>})
 {
     const [pictureIndex, setPictureIndex] = useState(0)
     const timeoutRef:any = useRef(null);
@@ -15,13 +15,13 @@ export default function AutomaticSlidePicture({pictures} : {pictures : Array<any
 
     const changePictureIndex = useCallback((next: number) =>
     {
-        if (pictureIndex + next == pictures.length)
+        if (pictureIndex + next == headerInfo.length)
         {
             setPictureIndex(0)
         }
         else if (pictureIndex + next < 0)
         {
-            setPictureIndex(pictures.length - 1)
+            setPictureIndex(headerInfo.length - 1)
         }
         else
         {
@@ -43,13 +43,18 @@ export default function AutomaticSlidePicture({pictures} : {pictures : Array<any
     }, 
     [pictureIndex])
 
-    return <div className="relative group p-1 flex items-center max-w-[420px] max-h-[420px]">
-        <button name="arrow" className="invisible absolute group-hover:visible flex items-center w-10 h-10 left-2 bg-white rounded-full" onClick={(e) => {changePictureIndex(-1)}}>
-            <div id="arrow"  className="my-0 mx-auto">&#10094;</div>
-        </button>
-        <img className="w-fit flex-1 object-contain	max-w-[320px]" src={pictures[pictureIndex]}></img>
-        <button name="arrow" className="invisible absolute group-hover:visible flex items-center w-10 h-10 right-2 bg-white rounded-full" onClick={(e) => {changePictureIndex(+1)}}>
-            <div id="arrow" className="my-0 mx-auto">&#10095;</div>
-        </button>
+    return <div className="flex flex-col items-center bg-[#89a6bf] p-2">
+        <div className="relative group p-1 flex items-center max-w-[420px] max-h-[420px]">
+            <button name="arrow" className="invisible absolute group-hover:visible flex items-center w-10 h-10 left-2 bg-white rounded-full" onClick={(e) => {changePictureIndex(-1)}}>
+                <div id="arrow"  className="my-0 mx-auto">&#10094;</div>
+            </button>
+            <div className="flex h-[200px] w-[300px]">
+                <img className="object-contain flex-1" src={headerInfo[pictureIndex]?.picture}></img>
+            </div>
+            <button name="arrow" className="invisible absolute group-hover:visible flex items-center w-10 h-10 right-2 bg-white rounded-full" onClick={(e) => {changePictureIndex(+1)}}>
+                <div id="arrow" className="my-0 mx-auto">&#10095;</div>
+            </button>
+        </div>
+        <div>{headerInfo[pictureIndex]?.title}</div>
     </div>
 }

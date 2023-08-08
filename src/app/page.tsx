@@ -1,16 +1,18 @@
 import Ad from "./components/ad";
+import AutomaticSlidePicture from "./components/automaticSlidePicture/automaticSlidePicture";
 import { DataBaseService } from "./databaseManager/databaseService";
 
-async function getAds()
+const getDtos = async (dtoName: string) =>
 {
-  const dtoName = 'ad';
   const dtos = await DataBaseService.getAllDtos(dtoName, true);
   return JSON.parse(dtos);
 }
 
 export default async function Home() 
 {
-  const adsInfo = await getAds();
+  const adsInfo: Array<any> = await getDtos('ad');
+  const headerInfo: Array<any> = await getDtos('headerInformation');
+    
   var ads = undefined;
   
   if (adsInfo)
@@ -29,6 +31,7 @@ export default async function Home()
 
   return (
     <>
+      <AutomaticSlidePicture headerInfo={headerInfo}/>
       {ads === undefined ? '' : <ul>{ads}</ul>}
     </>
   )
