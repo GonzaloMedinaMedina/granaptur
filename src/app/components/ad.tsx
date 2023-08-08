@@ -33,7 +33,9 @@ const Ad: React.FC<iAd> = ({adInfo, editable}) =>
   }, [])
 
   const editContainer = editable ? 
-    <a className=" m-5 p-2 border rounded-lg drop-shadow-lg transition ease-in-out hover:scale-150 bg-green-200 hover:bg-green-500 duration-300" href={editableAdUrl}>EDITAR</a>
+    <div className='flex self-center float-right'>
+      <a className=" m-5 p-2 border rounded-lg drop-shadow-lg transition ease-in-out hover:scale-150 bg-green-200 hover:bg-green-500 duration-300" href={editableAdUrl}>EDITAR</a>
+    </div>
     : null;
 
   const removeAd = editable ?
@@ -70,9 +72,7 @@ const Ad: React.FC<iAd> = ({adInfo, editable}) =>
           </div>
         </a>
       </div>
-      <div className='flex self-center float-right'>
-        {editContainer}
-      </div>
+      {editContainer}
     </div>
   );
 }
