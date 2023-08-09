@@ -14,6 +14,7 @@ const NavBar = () =>
     return (
         <div className="flex">
             {NavLink}
+            <h1 className="w-full self-center text-center text-5xl font-semibold text-[#3a89f8]">Granaptur</h1>
         </div>
     )
 }
