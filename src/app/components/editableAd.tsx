@@ -4,6 +4,7 @@ import TextInput from './textInput';
 import { RequestUtils } from '../requestUtils';
 import { iadProperty } from '../interfaces/iadProperty';
 import AdProperty from './adProperty';
+import SlidePicture from './slidePicture/slidePicture';
 
 export default function EditableAd({adInfo} : {adInfo: any})
 {
@@ -57,8 +58,11 @@ export default function EditableAd({adInfo} : {adInfo: any})
 
 
     return ( <div className="m-10 rounded-xl bg-[#7197b3] items-center flex-col flex">
-        <button id="saveChanges" className='saveChanges' onClick={() => {onSaveFunc()}}>Save</button>
+        <button className='bg-lime-600 m-5 rounded-lg' onClick={() => {onSaveFunc()}}>Guardar</button>
         <TextInput setText={setTitle} initValue={adTitle} width='100%'/>
-        {AdProperties}
+        <SlidePicture pictures={adInfo.pictures}></SlidePicture>
+        <div className=' items-center flex-col flex'>
+          {AdProperties}
+        </div>
     </div>)
 }
