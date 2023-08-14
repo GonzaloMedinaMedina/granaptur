@@ -53,7 +53,7 @@ const Ad: React.FC<iAd> = ({adInfo, editable}) =>
     
   return (
 
-    <div className="relative flex my-20 mx-10 sm:mx-60 p-1 bg-[#89a6bf] rounded-xl">
+    <div className="relative flex my-20 mx-10 sm:mx-60 p-1 bg-adblueback/40 rounded-xl">
       {removeAd}
       <div>
         <a href={url} onClick={handleClick}>
