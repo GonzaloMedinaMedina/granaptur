@@ -78,11 +78,9 @@ export default function AutomaticSlidePicture({headerInfo} : {headerInfo : Array
             <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 left-2 bg-white rounded-full" onClick={(e) => {changePictureIndex(-1)}}>
                 <div id="arrow"  className="my-0 mx-auto">&#10094;</div>
             </button>
-            {/* <div className="flex h-[600px] w-[300px]"> */}
             <div className={"relative overflow-hidden bg-gray-500/20 flex h-[200px] w-[300px] duration-500"}>
                 {getPictures()}
             </div>
-            {/* </div> */}
             <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 right-2 bg-white rounded-full" onClick={(e) => {changePictureIndex(+1)}}>
                 <div id="arrow" className="my-0 mx-auto">&#10095;</div>
             </button>
