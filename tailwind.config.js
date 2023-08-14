@@ -12,16 +12,36 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        slideOutLeft: 'slideOutLeft 1s ease-in-out forwards',
+        slideInRight: 'slideInRight 1s ease-in-out forwards',
+        slideLeft: 'slideLeft 1s linear forwards',
+        slideRight: 'slideRight 1s linear forwards'
+        
+      },
       keyframes: {
         navLink:
         {
           '0%': 'transform: scale(1)',
           '50%': 'transform: scale(1.25)',
           '100%': 'transform: scale(1.5)'         
+        },
+        slideRight: {
+          '0%': {left: '-100%'},
+          '50%': {left: '-50%'},
+          '100%': {left: '0%'}
+        },
+        slideLeft: {
+          '0%': {left: '0%'},
+          '50%': {left: '-50%'},
+          '100%': {left: '-100%'}
         }
       },
       fontSize: {
         clamp: 'clamp(20px, 1rem + 2vw, 30px)'
+      },
+      colors: {
+        'adblueback': '#0c69ba'
       }
     },
     boxShadow: {
