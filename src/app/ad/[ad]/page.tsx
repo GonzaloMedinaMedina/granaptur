@@ -1,15 +1,8 @@
 import SlidePicture from '@/app/components/slidePicture/slidePicture';
 import AdProperty from '@/app/components/adProperty';
 import AdTitle from '@/app/components/adTitle';
-import { DataBaseService } from '@/app/databaseManager/databaseService';
 import { iadProperty } from '@/app/interfaces/iadProperty';
-
-async function getAd(id:string)
-{
-    const dtoName = 'ad';
-    const dto = await DataBaseService.getDtoById(id, dtoName, true);
-    return JSON.parse(dto);
-}
+import { anuncios } from '@/app/anuncios';
 
 export default async function AdPage({params}: {params: {ad: string}}) 
 {
