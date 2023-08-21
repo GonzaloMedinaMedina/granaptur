@@ -5,24 +5,13 @@ import { headerInfo } from "./headerInfo";
 
 export default async function Home() 
 {
-  // const adsInfo: Array<any> = await getDtos('ad');
-  // const headerInfo: Array<any> = await getDtos('headerInformation');
-    
-  var ads = undefined;
-  
-  if (anuncios)
-  {
-    const adsObject = anuncios;
-
-    ads = adsObject.map((adInfo: any) => {
-      return <li className="no-dot" key={adInfo.id}>
-        <Ad
-          adInfo={adInfo}
-          editable={false}
-        ></Ad>
-      </li>
-    })
-  }
+  const ads = anuncios.map((adInfo: any) => {
+    return <li className="no-dot" key={adInfo.id}>
+      <Ad
+        adInfo={adInfo}
+      ></Ad>
+    </li>
+  })
 
   return (
     <>
