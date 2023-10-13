@@ -2,6 +2,8 @@ import Ad from "./components/ad";
 import { anuncios } from '@/app/anuncios';
 import { headerInfo } from "./headerInfo";
 import SlidePicture from "./components/pictureSlider/pictureSlider";
+import atico1 from 'public/atico/atico1.webp'
+import Image from "next/image";
 
 export default async function Home() 
 {
@@ -24,6 +26,7 @@ export default async function Home()
     </div>
 
     <ul className="sm:grid sm:grid-cols-2 sm:flex-wrap block w-full justify-items-center">
+      <Image alt="" src={atico1}></Image>
       {ads}
     </ul>
     </>
