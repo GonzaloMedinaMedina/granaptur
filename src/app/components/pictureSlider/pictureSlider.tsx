@@ -74,6 +74,7 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, width = '400'
     const changeVisibility = useCallback((e: any, mode: boolean) => 
     {
         e.stopPropagation();
+        e.preventDefault();
         if (isFullSCreen !== null)
             setFullScreen(mode);
     }, [isFullSCreen])
@@ -113,14 +114,14 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, width = '400'
 
     return <div className={cssStyle} onClick={(e) => { changeVisibility(e, true) }}>
         <div className='relative group p-1 flex items-center'>
-            <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 left-2 bg-white rounded-full" onClick={(e) => { e.preventDefault(); setDirection(-1)}}>
+            <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 left-2 bg-white rounded-full" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(-1)}}>
                 <div id="arrow"  className="my-0 mx-auto">&#10094;</div>
             </button>
             <div className={"relative overflow-hidden bg-gray-500/20 flex duration-500 rounded-xl " + pictureContainerSize} style={pictureContainerStyle}>
                 {exitButton}
                 {cachedPictures}
             </div>
-            <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 right-2 bg-white rounded-full" onClick={(e) => { e.preventDefault(); setDirection(+1)}}>
+            <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 right-2 bg-white rounded-full" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(+1)}}>
                 <div id="arrow" className="my-0 mx-auto">&#10095;</div>
             </button>
         </div>
