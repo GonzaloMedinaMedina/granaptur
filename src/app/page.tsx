@@ -23,8 +23,9 @@ export default async function Home()
           return an - bn;
   }
   const path = process.env.NODE_ENV === 'development' ? `./public/atico/` : `./atico`
+  let i=0;
   let result = readdirSync(path).map(p => `/atico/` + p).sort(compareNumbers)
-  const imageComponents = result.map(r => {return <Image alt="" src={r} width={100} height={100}></Image>})
+  const imageComponents = result.map(r => {return <Image key={i++} alt="" src={r} width={100} height={100}></Image>})
 
   return (
     <>
