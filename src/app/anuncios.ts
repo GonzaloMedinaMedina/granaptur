@@ -1,17 +1,10 @@
 import { readdirSync } from "fs";
-
-function compareNumbers(a: any, b: any) {
-    let an = a.match(/(\d+)/)[0],
-        bn = b.match(/(\d+)/)[0];
-        return an - bn;
-}
-
 export const anuncios = [
     {
         "title": "El balcón de la catedral",
         "description": "Impresionante Ático en el elegante edificio Olimpia, justo en el centro de Granada, donde podrás disfrutar de la ciudad en todo su esplendor tanto por sus inmejorables vistas, sus preciosos atardeceres y la vida céntrica de la ciudad donde todo lo tienes a un paso. Sitios turísticos, los mejores lugares de restauración, zonas de shopping, incluso excursiones en pleno campo. Todo para disfrutar de Granada, de su ambiente de su cultura y en definitiva que tu estancia sea inolvidable .",
         "properties": [],
-        "pictures": readdirSync(`./public/mercado`).map(p => '/mercado/' + p).sort(compareNumbers),
+        "pictures": [],
         "precio": 187,
         "id": "mercado"
     },
@@ -23,7 +16,19 @@ export const anuncios = [
         "precio": 220,
         "id": "atico"
     }
-    /*{
+]
+function compareNumbers(a: any, b: any) {
+    let an = a.match(/(\d+)/)[0],
+        bn = b.match(/(\d+)/)[0];
+        return an - bn;
+}
+
+export const initPicturesArray = (() => 
+{
+    anuncios[0].pictures = readdirSync(`./public/mercado`).map(p => '/mercado/' + p).sort(compareNumbers);
+})
+
+/*{
         "title": "ascasc",
         "description": "Impresionante Ático en el elegante edificio Olimpia, justo en el centro de Granada, donde podrás disfrutar de la ciudad en todo su esplendor tanto por sus inmejorables vistas, sus preciosos atardeceres y la vida céntrica de la ciudad donde todo lo tienes a un paso. Sitios turísticos, los mejores lugares de restauración, zonas de shopping, incluso excursiones en pleno campo. Todo para disfrutar de Granada, de su ambiente de su cultura y en definitiva que tu estancia sea inolvidable .",
         "pictures": 
@@ -45,4 +50,3 @@ export const anuncios = [
         "precio": 300,
         "id": "gran-capitan"
     }*/
-]

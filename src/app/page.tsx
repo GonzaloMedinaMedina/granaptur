@@ -1,10 +1,11 @@
 import Ad from "./components/ad";
-import { anuncios } from '@/app/anuncios';
+import { anuncios, initPicturesArray } from '@/app/anuncios';
 import { headerInfo } from "./headerInfo";
 import SlidePicture from "./components/pictureSlider/pictureSlider";
 
 export default async function Home() 
 {
+  initPicturesArray();
   const ads = anuncios.map((adInfo: any) => {
     return <li className="no-dot max-w-full my-16" key={adInfo.id}>
       <Ad
