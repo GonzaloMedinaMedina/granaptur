@@ -7,7 +7,7 @@ import { anuncios } from '@/app/anuncios';
 export default async function AdPage({params}: {params: {ad: string}}) 
 {
     const adInfo: any = anuncios.find(a => a.id === params.ad)
-    const properties: Array<iadProperty> = adInfo.properties;
+    const properties: Array<iadProperty> = adInfo?.properties;
 
     const addAndApartmentInfo = properties.map(property => {
         return <AdProperty key={property.name + adInfo.id} adProperty={property} />
