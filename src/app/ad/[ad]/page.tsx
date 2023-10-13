@@ -3,6 +3,7 @@ import AdProperty from '@/app/components/adProperty';
 import AdTitle from '@/app/components/adTitle';
 import { iadProperty } from '@/app/interfaces/iadProperty';
 import { anuncios } from '@/app/anuncios';
+import Pictures from '@/app/components/pictures/Pictures';
 
 export default async function AdPage({params}: {params: {ad: string}}) 
 {
@@ -16,7 +17,7 @@ export default async function AdPage({params}: {params: {ad: string}})
     return (
         <div className="m-10 rounded-xl bg-[#7197b3] items-center flex-col flex">
             <AdTitle title={adInfo.title}/>
-            <SlidePicture pictures={adInfo.pictures} width='1000' height='600' fullScreen={false} automaticSlider={false}/>
+            <SlidePicture components={<Pictures/>} pictures={adInfo.pictures} width='1000' height='600' fullScreen={false} automaticSlider={false}/>
             <br></br>
             <div className="inline-flex">
                 {addAndApartmentInfo}

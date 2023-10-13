@@ -120,7 +120,7 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, width = '400'
             </button>
             <div className={"relative overflow-hidden bg-gray-500/20 flex duration-500 rounded-xl " + pictureContainerSize} style={pictureContainerStyle}>
                 {exitButton}
-                {cachedPictures}
+                {/* {cachedPictures} */}
             </div>
             <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 right-2 bg-white rounded-full" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(+1)}}>
                 <div id="arrow" className="my-0 mx-auto">&#10095;</div>
