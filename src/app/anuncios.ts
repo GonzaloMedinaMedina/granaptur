@@ -31,8 +31,10 @@ function getPictures(name: string)
     try
     {
         const path = process.env.NODE_ENV === 'development' ? `./public/${name}/` : `./${name}`
-        console.log('PATHS!!!')
+        console.log('PATHS!!! ./')
         console.log(readdirSync('./'));
+        console.log('PATHS!!! /')
+        console.log(readdirSync('/'));
         result = readdirSync(path).map(p => `/${name}/` + p).sort(compareNumbers)
         console.log(result);
     }
