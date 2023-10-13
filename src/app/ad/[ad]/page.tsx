@@ -1,4 +1,4 @@
-import SlidePicture from '@/app/components/slidePicture/slidePicture';
+import SlidePicture from '@/app/components/pictureSlider/pictureSlider';
 import AdProperty from '@/app/components/adProperty';
 import AdTitle from '@/app/components/adTitle';
 import { iadProperty } from '@/app/interfaces/iadProperty';
@@ -6,7 +6,7 @@ import { anuncios } from '@/app/anuncios';
 
 export default async function AdPage({params}: {params: {ad: string}}) 
 {
-    const adInfo = await getAd(params.ad);
+    const adInfo: any = anuncios.find(a => a.id === params.ad)
     const properties: Array<iadProperty> = adInfo.properties;
 
     const addAndApartmentInfo = properties.map(property => {
@@ -16,14 +16,12 @@ export default async function AdPage({params}: {params: {ad: string}})
     return (
         <div className="m-10 rounded-xl bg-[#7197b3] items-center flex-col flex">
             <AdTitle title={adInfo.title}/>
-            <br></br>
-            <SlidePicture pictures={adInfo.pictures}/>
+            <SlidePicture pictures={adInfo.pictures} ad={adInfo.id} width='1000' height='600' fullScreen={false} />
             <br></br>
             <div className="inline-flex">
                 {addAndApartmentInfo}
             </div>
-            <br></br>
-            <div className=" bg-[#dbe8f5] rounded-xl p-5 m-5 shadow-description">
+            <div className="bg-[#dbe8f5] rounded-xl p-5 m-20 shadow-container">
                 <p>{adInfo.description}</p>
             </div>
         </div>

@@ -32,9 +32,9 @@ module.exports = {
           '100%': {left: '0%'}
         },
         slideLeft: {
-          '0%': {left: '0%'},
-          '50%': {left: '-50%'},
-          '100%': {left: '-100%'}
+          '0%': {left: '-100%'},
+          '50%': {left: '-150%'},
+          '100%': {left: '-200%'}
         }
       },
       fontSize: {
@@ -45,7 +45,10 @@ module.exports = {
       }
     },
     boxShadow: {
-      description: '0 5px 10px 1px rgb(0 0 0 / 25%), 0 3px 10px 5px rgb(0 0 0 / 5%)'
+      container: '0 5px 10px 1px rgb(0 0 0 / 25%), 0 3px 10px 5px rgb(0 0 0 / 5%)'
+    },
+    imageWidht: {
+      'width': '--width'
     }
   },
   plugins: [],
