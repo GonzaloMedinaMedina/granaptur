@@ -2,7 +2,6 @@ import Ad from "./components/ad";
 import { anuncios } from '@/app/anuncios';
 import { headerInfo } from "./headerInfo";
 import SlidePicture from "./components/pictureSlider/pictureSlider";
-import atico1 from 'public/atico/atico1.webp'
 import Image from "next/image";
 
 export default async function Home() 
@@ -14,6 +13,7 @@ export default async function Home()
       ></Ad>
     </li>
   })
+  const atico1 = require('public/atico/atico1.webp')
 
   return (
     <>
