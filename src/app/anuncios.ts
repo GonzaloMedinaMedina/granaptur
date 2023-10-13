@@ -4,7 +4,7 @@ export const anuncios = [
         "title": "El balcón de la catedral",
         "description": "Impresionante Ático en el elegante edificio Olimpia, justo en el centro de Granada, donde podrás disfrutar de la ciudad en todo su esplendor tanto por sus inmejorables vistas, sus preciosos atardeceres y la vida céntrica de la ciudad donde todo lo tienes a un paso. Sitios turísticos, los mejores lugares de restauración, zonas de shopping, incluso excursiones en pleno campo. Todo para disfrutar de Granada, de su ambiente de su cultura y en definitiva que tu estancia sea inolvidable .",
         "properties": [],
-        "pictures": [],
+        "pictures": getPictures('mercado'),
         "precio": 187,
         "id": "mercado"
     },
@@ -12,21 +12,34 @@ export const anuncios = [
         "title": "Atico'Secret",
         "description": "Impresionante ATICO en pleno corazón de Granada. Privilegiada ubicación, el alojamiento es amplio y espacioso en todas sus estancias, cuenta con una amplia terraza e impresionantes vistas a Sierra Nevada y ciudad. Cómodo, soleado y tranquilo. Te sentirás en un lugar mágico y especial, disfrutareis de una experiencia de ensueño en un apartamento único.",
         "properties": [],
-        "pictures": readdirSync(`./public/atico`).map(p => '/atico/' + p).sort(compareNumbers),
+        "pictures": getPictures('atico'),
         "precio": 220,
         "id": "atico"
     }
 ]
-function compareNumbers(a: any, b: any) {
+
+function compareNumbers(a: any, b: any) 
+{
     let an = a.match(/(\d+)/)[0],
         bn = b.match(/(\d+)/)[0];
         return an - bn;
 }
 
-export const initPicturesArray = (() => 
+function getPictures(name: string)
 {
-    anuncios[0].pictures = readdirSync(`./public/mercado`).map(p => '/mercado/' + p).sort(compareNumbers);
-})
+    let result:Array<any> = [];
+    try
+    {
+        result = readdirSync(`./public/${name}`).map(p => `/${name}/` + p).sort(compareNumbers)
+    }
+    catch(e)
+    {
+        console.log(e);
+    }
+
+    return result;
+}
+
 
 /*{
         "title": "ascasc",
