@@ -9,10 +9,11 @@ interface iSlidePicture
     height? : string,
     fullScreen? : boolean | null,
     automaticSlider: boolean,
-    text?: Array<any>
+    text?: Array<any>,
+    components? :any
 }
 
-const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, width = '400', height = '300', fullScreen = null, automaticSlider, text = []}) =>
+const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, width = '400', height = '300', fullScreen = null, automaticSlider, text = [], components = []}) =>
 {
     const sliderIndex = useRef(0);
     const [isFullSCreen, setFullScreen] = useState<boolean|null>(fullScreen);
@@ -112,6 +113,7 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, width = '400'
     const pictureContainerSize = isFullSCreen ? ' w-full h-full ' : '';
 
     return <div className={cssStyle} onClick={(e) => { changeVisibility(e, true) }}>
+        {components}
         <div className='relative group p-1 flex items-center'>
             <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 left-2 bg-white rounded-full" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(-1)}}>
                 <div id="arrow"  className="my-0 mx-auto">&#10094;</div>
