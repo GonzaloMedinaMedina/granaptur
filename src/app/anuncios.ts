@@ -30,7 +30,8 @@ function getPictures(name: string)
     let result:Array<any> = [];
     try
     {
-        result = readdirSync(`./public/${name}`).map(p => `/${name}/` + p).sort(compareNumbers)
+        const path = process.env.NODE_ENV === 'development' ? `./public/${name}` : `./${name}`
+        result = readdirSync(path).map(p => `/${name}/` + p).sort(compareNumbers)
     }
     catch(e)
     {
