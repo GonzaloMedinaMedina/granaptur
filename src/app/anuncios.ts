@@ -3,7 +3,36 @@ export const anuncios = [
         "title": "El balcón de la catedral",
         "description": "Impresionante Ático en el elegante edificio Olimpia, justo en el centro de Granada, donde podrás disfrutar de la ciudad en todo su esplendor tanto por sus inmejorables vistas, sus preciosos atardeceres y la vida céntrica de la ciudad donde todo lo tienes a un paso. Sitios turísticos, los mejores lugares de restauración, zonas de shopping, incluso excursiones en pleno campo. Todo para disfrutar de Granada, de su ambiente de su cultura y en definitiva que tu estancia sea inolvidable .",
         "properties": [],
-        "pictures": [],//getPictures('mercado'),
+        "pictures": [
+            'https://i.ibb.co/28HknQx/mercado1.webp', 
+            'https://i.ibb.co/s5GJJXd/mercado2.jpg', 
+            'https://i.ibb.co/jWdxqZr/mercado3.jpg', 
+            'https://i.ibb.co/xjkQzL4/mercado4.jpg', 
+            'https://i.ibb.co/vYBgbVB/mercado5.jpg', 
+            'https://i.ibb.co/4FjfMqK/mercado6.jpg', 
+            'https://i.ibb.co/wBbgL4T/mercado7.jpg', 
+            'https://i.ibb.co/nM30bwQ/mercado8.jpg', 
+            'https://i.ibb.co/884ST7v/mercado9.jpg', 
+            'https://i.ibb.co/cNKMsmy/mercado10.jpg', 
+            'https://i.ibb.co/18b4rFN/mercado11.jpg', 
+            'https://i.ibb.co/gZwB9ZZ/mercado12.jpg', 
+            'https://i.ibb.co/qdx9ZYv/mercado13.jpg', 
+            'https://i.ibb.co/qBMRV0j/mercado14.jpg', 
+            'https://i.ibb.co/Qncxx3h/mercado15.jpg', 
+            'https://i.ibb.co/6HfMkf5/mercado16.jpg', 
+            'https://i.ibb.co/CvM6vWj/mercado17.jpg', 
+            'https://i.ibb.co/7kgXmCT/mercado18.webp', 
+            'https://i.ibb.co/XzJQhTF/mercado20.webp', 
+            'https://i.ibb.co/jMNYQKB/mercado19.webp', 
+            'https://i.ibb.co/dBbM1p4/mercado21.webp', 
+            'https://i.ibb.co/r3YDBr7/mercado22.jpg', 
+            'https://i.ibb.co/1mXXfmL/mercado23.webp', 
+            'https://i.ibb.co/1sb3nWQ/mercado24.webp', 
+            'https://i.ibb.co/JtXQVV0/mercado25.jpg', 
+            'https://i.ibb.co/27YGBTM/mercado26.webp', 
+            'https://i.ibb.co/DfYdGZ6/mercado27.webp', 
+            'https://i.ibb.co/FV7Hx6W/mercado28.webp'
+        ],
         "precio": 187,
         "id": "mercado"
     },
@@ -11,54 +40,42 @@ export const anuncios = [
         "title": "Atico'Secret",
         "description": "Impresionante ATICO en pleno corazón de Granada. Privilegiada ubicación, el alojamiento es amplio y espacioso en todas sus estancias, cuenta con una amplia terraza e impresionantes vistas a Sierra Nevada y ciudad. Cómodo, soleado y tranquilo. Te sentirás en un lugar mágico y especial, disfrutareis de una experiencia de ensueño en un apartamento único.",
         "properties": [],
-        "pictures": [],//getPictures('atico'),
+        "pictures": [
+            'https://i.ibb.co/4t4t2SX/atico1.webp', 
+			'https://i.ibb.co/xmDwph9/atico2.webp', 
+			'https://i.ibb.co/MVFJQ51/atico3.webp', 
+			'https://i.ibb.co/j31Sm2R/atico4.webp', 
+			'https://i.ibb.co/9ZX9T2K/atico5.webp', 
+			'https://i.ibb.co/V3yWd61/atico6.webp', 
+			'https://i.ibb.co/M8twrnB/atico7.jpg', 
+			'https://i.ibb.co/nj2GwcG/atico8.webp', 
+			'https://i.ibb.co/m5n7ZMx/atico10.webp', 
+			'https://i.ibb.co/xhJgLXD/atico9.jpg', 
+			'https://i.ibb.co/bgcRqFh/atico11.webp', 
+			'https://i.ibb.co/sKvkJp8/atico12.jpg', 
+			'https://i.ibb.co/fq910xq/atico13.webp', 
+			'https://i.ibb.co/cctmbYX/atico15.webp', 
+			'https://i.ibb.co/w7yxpHK/atico14.jpg', 
+			'https://i.ibb.co/0tMd0Rc/atico16.webp', 
+			'https://i.ibb.co/D1NgS8h/atico17.jpg', 
+			'https://i.ibb.co/GcMTyr1/atico18.webp', 
+			'https://i.ibb.co/wrnPvCp/atico19.webp', 
+			'https://i.ibb.co/5hKRCXf/atico20.jpg', 
+			'https://i.ibb.co/Ns6HSZ1/atico21.webp', 
+			'https://i.ibb.co/9p8Nzhx/atico22.jpg', 
+			'https://i.ibb.co/vDnSDQL/atico23.webp', 
+			'https://i.ibb.co/HDZV31n/atico24.webp', 
+			'https://i.ibb.co/56DHdND/atico25.webp', 
+			'https://i.ibb.co/jLmh8MY/atico26.webp', 
+			'https://i.ibb.co/gdd1PWX/atico27.jpg', 
+			'https://i.ibb.co/8rKsd4d/atico28.webp', 
+			'https://i.ibb.co/3kmNFdN/atico29.jpg', 
+			'https://i.ibb.co/K2vpvtg/atico30.jpg', 
+			'https://i.ibb.co/fq2YKfh/atico32.webp', 
+			'https://i.ibb.co/gtbpCx0/atico31.webp', 
+			'https://i.ibb.co/b3Tz9dW/atico33.webp'
+        ],
         "precio": 220,
         "id": "atico"
     }
 ]
-
-function compareNumbers(a: any, b: any) 
-{
-    let an = a.match(/(\d+)/)[0],
-        bn = b.match(/(\d+)/)[0];
-        return an - bn;
-}
-
-function getPictures(name: string)
-{
-    let result:Array<any> = [];
-    try
-    {
-        const path = process.env.NODE_ENV === 'development' ? `./public/${name}/` : `./${name}`
-        result = []//readdirSync(path).map(p => `/${name}/` + p).sort(compareNumbers)
-    }
-    catch(e)
-    {
-        console.log(e);
-    }
-
-    return result;
-}
-
-/*{
-        "title": "ascasc",
-        "description": "Impresionante Ático en el elegante edificio Olimpia, justo en el centro de Granada, donde podrás disfrutar de la ciudad en todo su esplendor tanto por sus inmejorables vistas, sus preciosos atardeceres y la vida céntrica de la ciudad donde todo lo tienes a un paso. Sitios turísticos, los mejores lugares de restauración, zonas de shopping, incluso excursiones en pleno campo. Todo para disfrutar de Granada, de su ambiente de su cultura y en definitiva que tu estancia sea inolvidable .",
-        "pictures": 
-        [
-            'https://drive.google.com/uc?export=view&id=1R6qiAA0TjAs5PCj_b7rPengXDWsP3jAS'
-        ],
-        "properties": [],
-        "precio": 100,
-        "id": "gran-capitan"
-    },
-    {
-        "title": "atico",
-        "description": "Disfruta de Granada en un loft único en el centro con un balcón con vistas espectaculares.        Situado en el centro, cerca de todos los lugares de interés turístico, bares, tiendas ...pero a la vez muy tranquilo para poder descubrir Granada y a la vez descansar.        Parking opcional 12€/dia",
-        "pictures": 
-        [
-            'https://drive.google.com/uc?export=view&id=1R6qiAA0TjAs5PCj_b7rPengXDWsP3jAS'
-        ],
-        "properties": [],
-        "precio": 300,
-        "id": "gran-capitan"
-    }*/
