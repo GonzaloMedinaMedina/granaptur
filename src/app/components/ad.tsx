@@ -8,10 +8,9 @@ import { useRouter } from 'next/navigation';
 interface iAd
 {
   adInfo: any,
-  picturesComponents?: any
 }
 
-const Ad: React.FC<iAd> = ({adInfo, picturesComponents = []}) =>
+const Ad: React.FC<iAd> = ({adInfo}) =>
 {
   const router = useRouter();
   const properties: Array<iadProperty> = adInfo.properties;
@@ -37,7 +36,7 @@ const Ad: React.FC<iAd> = ({adInfo, picturesComponents = []}) =>
     <a className="shadow-container justify-items-center w-fit flex-col relative flex p-10 border-2 bg-adblueback/30 border-adblueback rounded-xl" href={url} onClick={handleClick}>
       <AdTitle title={adInfo.title} />
       <div className='flex flex-col'>
-        <SlidePicture components={picturesComponents} pictures={pictures} automaticSlider={false}/>
+        <SlidePicture pictures={pictures} automaticSlider={false}/>
         <br className='clear-both' />
         <div className="sm:grid sm:grid-cols-2" key={Id}>
           <div className='justify-self-center	p-1.5 m-1 bg-amber-200 rounded-xl'>
