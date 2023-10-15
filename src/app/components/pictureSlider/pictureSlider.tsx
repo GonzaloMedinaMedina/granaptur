@@ -72,10 +72,10 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, width = '400'
 
     const changeVisibility = useCallback((e: any, mode: boolean) => 
     {
-        e.preventDefault();
         if (isFullSCreen !== null)
         {
             e.stopPropagation();
+            console.log('dentro if');
             setFullScreen(mode);
         }
         }, [isFullSCreen])
