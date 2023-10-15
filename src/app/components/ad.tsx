@@ -36,7 +36,7 @@ const Ad: React.FC<iAd> = ({adInfo}) =>
     <a className="shadow-container justify-items-center w-fit flex-col relative flex p-10 border-2 bg-adblueback/30 border-adblueback rounded-xl" href={url} onClick={handleClick}>
       <AdTitle title={adInfo.title} />
       <div className='flex flex-col'>
-        <SlidePicture pictures={pictures} automaticSlider={false}/>
+        <SlidePicture pictures={pictures} automaticSlider={false} fullScreen={null}/>
         <br className='clear-both' />
         <div className="sm:grid sm:grid-cols-2" key={Id}>
           <div className='justify-self-center	p-1.5 m-1 bg-amber-200 rounded-xl'>

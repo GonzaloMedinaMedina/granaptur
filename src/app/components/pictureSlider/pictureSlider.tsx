@@ -73,10 +73,12 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, width = '400'
     const changeVisibility = useCallback((e: any, mode: boolean) => 
     {
         e.preventDefault();
-        e.stopPropagation();
         if (isFullSCreen !== null)
+        {
+            e.stopPropagation();
             setFullScreen(mode);
-    }, [isFullSCreen])
+        }
+        }, [isFullSCreen])
 
     const getFooterText = useCallback(() => 
     {
