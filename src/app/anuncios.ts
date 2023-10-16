@@ -43,7 +43,7 @@ export const anuncios = [
         "rooms": 2,
         "beds": 4,
         "restrooms": 2,
-        "price": 187,
+        "price": 154.00,
         "id": "mercado"
     },
     {
@@ -89,7 +89,7 @@ export const anuncios = [
         "rooms": 3,
         "beds": 5,
         "restrooms": 2,
-        "price": 220,
+        "price": 190.00,
         "id": "atico"
     },
     {
@@ -111,7 +111,7 @@ export const anuncios = [
         "rooms": 3,
         "beds": 5,
         "restrooms": 2,
-        "price": 200,
+        "price": 178.50,
         "id": "granCapitan"
     }
 ]

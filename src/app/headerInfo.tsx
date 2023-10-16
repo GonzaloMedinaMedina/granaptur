@@ -8,8 +8,8 @@ export const headerInfo =
     ],
     title: 
     [
-        "Relájate con las mejores vistas de la ciudad",
+        "Relájate con las mejores vistas",
         "Alojamientos con primeras calidades",
-        "Visita rincones de la ciudad",
+        "Descubre rincones de la ciudad",
     ]
 }

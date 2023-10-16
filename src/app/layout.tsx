@@ -12,7 +12,7 @@ export default function RootLayout({
     <html lang="en">
       <body className='bg-adblueback/10'>
         <NavBar/>
-        <hr className='border-black'></hr>
+        <hr className='border-black/20'></hr>
         <main>
           {children}
           <div className='h-[100px] bg-[#8c9bb3]'></div>

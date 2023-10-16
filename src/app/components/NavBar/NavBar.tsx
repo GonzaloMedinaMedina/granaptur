@@ -8,7 +8,7 @@ const NavBar = () =>
 {
     const NavLink = NavLinks.map(navLink => 
     {
-        return <Link className="bg-white m-10 p-2 border rounded-lg drop-shadow-lg transition ease-in-out hover:scale-150 hover:bg-sky-600 duration-300 " href={navLink.path} key={navLink.label}>
+        return <Link className="bg-white m-5 p-2 border rounded-lg drop-shadow-lg transition ease-in-out hover:scale-150 hover:bg-sky-600 duration-300 " href={navLink.path} key={navLink.label}>
                 <h1>{navLink.label}</h1>
             </Link>
     })

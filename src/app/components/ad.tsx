@@ -51,7 +51,7 @@ const Ad: React.FC<iAd> = ({adInfo}) =>
             </svg>
           </div>
         </div> */}
-        <div className='self-center text-xl p-2'>{adInfo.price} € noche</div>
+        <div className='self-center text-xl p-2'>Precio aproximado: {adInfo.price}€ noche</div>
       </div>
     </a>
   );
