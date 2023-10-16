@@ -1,7 +1,13 @@
 export const anuncios = [
     {
         "title": "El balcón de la catedral",
-        "description": "Impresionante Ático en el elegante edificio Olimpia, justo en el centro de Granada, donde podrás disfrutar de la ciudad en todo su esplendor tanto por sus inmejorables vistas, sus preciosos atardeceres y la vida céntrica de la ciudad donde todo lo tienes a un paso. Sitios turísticos, los mejores lugares de restauración, zonas de shopping, incluso excursiones en pleno campo. Todo para disfrutar de Granada, de su ambiente de su cultura y en definitiva que tu estancia sea inolvidable .",
+        "description":
+        [
+            "Privilegiada ubicación, podrás llegar a todos los rincones de Granada a pie! Se trata de un amplio apartamento totalmente equipado, todas las necesidades cubiertas. Perfectamente comunicado, a 2 min de la Catedral, 5 min del Realejo, Plaza Nueva, Ayuntamiento y a apenas 20 min de la Alhambra! y con posibilidad de servicio de parking y gimnasio.",
+            "El alojamiento",
+            "Amplio apartamento en zona inmejorable, pleno centro de Granada y perfectamente comunicado.",
+            "Todas las habitaciones tienen ventilador y calefactor, colchones y almohadas viscoelásticas, electrodomésticos a estrenar, vitrocerámica de inducción, wifi."
+        ],
         "properties": [],
         "pictures": [
             'https://i.ibb.co/28HknQx/mercado1.webp', 
@@ -33,12 +39,16 @@ export const anuncios = [
             'https://i.ibb.co/DfYdGZ6/mercado27.webp', 
             'https://i.ibb.co/FV7Hx6W/mercado28.webp'
         ],
-        "precio": 187,
+        "guests" : 5,
+        "rooms": 2,
+        "beds": 4,
+        "restrooms": 2,
+        "price": 187,
         "id": "mercado"
     },
     {
         "title": "Atico'Secret",
-        "description": "Impresionante ATICO en pleno corazón de Granada. Privilegiada ubicación, el alojamiento es amplio y espacioso en todas sus estancias, cuenta con una amplia terraza e impresionantes vistas a Sierra Nevada y ciudad. Cómodo, soleado y tranquilo. Te sentirás en un lugar mágico y especial, disfrutareis de una experiencia de ensueño en un apartamento único.",
+        "description": ["Impresionante ATICO en pleno corazón de Granada. Privilegiada ubicación, el alojamiento es amplio y espacioso en todas sus estancias, cuenta con una amplia terraza e impresionantes vistas a Sierra Nevada y ciudad. Cómodo, soleado y tranquilo. Te sentirás en un lugar mágico y especial, disfrutareis de una experiencia de ensueño en un apartamento único."],
         "properties": [],
         "pictures": [
             'https://i.ibb.co/4t4t2SX/atico1.webp', 
@@ -75,7 +85,33 @@ export const anuncios = [
 			'https://i.ibb.co/gtbpCx0/atico31.webp', 
 			'https://i.ibb.co/b3Tz9dW/atico33.webp'
         ],
-        "precio": 220,
+        "guests" : 7,
+        "rooms": 3,
+        "beds": 5,
+        "restrooms": 2,
+        "price": 220,
         "id": "atico"
+    },
+    {
+        "title": "Amplio, Nuevo y 100% Accesible City Center",
+        "description":
+        [ 
+            "Espacioso y cómodo apartamento en pleno centro de Granada, acceso y ubicación magnífica, ideal para familias. 3 habitaciones, gran sala de estar y comedor, nueva y completa cocina, baño y aseo. A un paso de todos los puntos turísticos de interés.",
+            "Amplio y cómodo apartamento en el corazón de Granada, magnífico acceso y ubicación, ideal para familias. 3 habitaciones, amplio salón y comedor, cocina completa y nueva, baño e inodoro. A un paso de todos los puntos de interés turístico.",
+            "El alojamiento",
+            "Amplia zona de entrada, que da paso a la sala de estar y comedor, con smart TV y A/C frío y calor. Tres habitaciones dobles con calefacción y ventilador de techo, una de ellas especialmente funcional para quien viaja con bebé. Cocina especialmente diseñada, cuenta con lavavajillas y lavadora/secadora. Baño con ducha y un aseo extra.",
+            "Gran área de vestíbulo, que conduce a la sala de estar y comedor, con TV inteligente y aire acondicionado frío y caliente. Tres dormitorios dobles con calefacción y ventilador de techo, uno de ellos especialmente funcional para aquellos que viajan con un bebé. Cocina construida a propósito, tiene lavavajillas y lavadora/secadora. Baño con ducha y un inodoro adicional.",
+        ],
+        "properties": [],
+        "pictures": [
+            'https://a0.muscache.com/im/pictures/miso/Hosting-811659508214507271/original/7dd2a80e-4747-4fa8-b10e-16a4f5cc5d37.jpeg',
+            'https://a0.muscache.com/im/pictures/miso/Hosting-811659508214507271/original/68c40906-5b05-4410-8726-c315b4f47903.jpeg'
+        ],
+        "guests": 6,
+        "rooms": 3,
+        "beds": 5,
+        "restrooms": 2,
+        "price": 200,
+        "id": "granCapitan"
     }
 ]

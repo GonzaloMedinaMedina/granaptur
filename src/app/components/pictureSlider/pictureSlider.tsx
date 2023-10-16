@@ -4,14 +4,12 @@ import { useEffect, useRef, useState, useCallback, ReactNode, FunctionComponent,
 interface iSlidePicture
 {
     pictures : Array<any>,
-    width? : string,
-    height? : string,
     fullScreen? : boolean | null,
     automaticSlider: boolean,
     text?: Array<any>,
 }
 
-const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, width = '400', height = '300', fullScreen = null, automaticSlider, text = []}) =>
+const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, fullScreen = null, automaticSlider, text = []}) =>
 {
     const sliderIndex = useRef(0);
     const [isFullSCreen, setFullScreen] = useState<boolean|null>(fullScreen);
@@ -109,16 +107,14 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, width = '400'
     const footerText: any|ReactNode[] = useMemo(() => { return getFooterText() }, [direction]);
     const exitButton: any|ReactNode = useMemo(() => { return getExitButton() }, [isFullSCreen])
     
-    var cssStyle = isFullSCreen === true ? 'top-0 absolute w-full h-full flex justify-center bg-gray-500' : '';
-    const pictureContainerStyle = isFullSCreen ? {} : {width:`${width}px`, height:`${height}px`};
-    const pictureContainerSize = isFullSCreen ? ' w-full h-full ' : '';
+    var cssStyle = isFullSCreen === true ? 'left-0 top-0 absolute w-full flex justify-center bg-gray-500 ' : 'sm:p-5 p-1';
 
     return <div className={cssStyle} onClick={(e) => { changeVisibility(e, true) }}>
         <div className='relative group p-1 flex items-center'>
             <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 left-2 bg-white rounded-full" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(-1)}}>
                 <div id="arrow"  className="my-0 mx-auto">&#10094;</div>
             </button>
-            <div className={"relative overflow-hidden bg-gray-500/20 flex duration-500 rounded-xl " + pictureContainerSize} style={pictureContainerStyle}>
+            <div className={"relative overflow-hidden bg-gray-500/20 flex duration-500 rounded-xl "}>
                 {exitButton}
                 {cachedPictures}
             </div>
