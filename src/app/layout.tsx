@@ -10,10 +10,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body style={{backgroundColor: '#0c69ba1a'}}>
+      <body style={{backgroundColor: 'rgb(200 218 234)'}}>
         <NavBar/>
         <hr className='border-black/20'></hr>
-        <main style={{backgroundColor: '#0c69ba1a'}}>
+        <main>
           {children}
           <div className='h-[100px] bg-[#8c9bb3]'></div>
         </main>
