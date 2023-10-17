@@ -13,7 +13,7 @@ export default async function Home()
   })
 
   return (
-  <>
+  <div style={{backgroundColor: '#0c69ba1a'}}>
     <h1 className="text-black text-center text-6xl text-semibold antialiased m-5">Granada Apartamentos Turísticos</h1>
 
     <div className="flex justify-center">
@@ -25,6 +25,6 @@ export default async function Home()
     <ul className="lg:grid lg:grid-cols-2 lg:flex-wrap block w-full justify-items-center">
       {ads}
     </ul>
-  </>
+  </div>
   )
 }
