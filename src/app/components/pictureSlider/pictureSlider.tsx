@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useRef, useState, useCallback, ReactNode, FunctionComponent, useMemo } from "react"
-import Image from "next/image"
 
 interface iSlidePicture
 {
@@ -74,7 +73,6 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, fullScreen = 
         if (isFullSCreen !== null)
         {
             e.stopPropagation();
-            console.log('dentro if');
             setFullScreen(mode);
         }
         }, [isFullSCreen])
@@ -108,18 +106,19 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, fullScreen = 
     const footerText: any|ReactNode[] = useMemo(() => { return getFooterText() }, [direction]);
     const exitButton: any|ReactNode = useMemo(() => { return getExitButton() }, [isFullSCreen])
     
-    var cssStyle = isFullSCreen === true ? 'left-0 top-0 absolute w-full flex justify-center bg-gray-500 ' : 'sm:p-5 p-1';
+    var cssStyle = isFullSCreen === true ? 'left-0 top-0 absolute flex justify-center bg-gray-500' : 'sm:p-5 p-1';
+    const arrowStyle = 'z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 md:w-20 md:h-20 bg-white rounded-full'
 
     return <div className={cssStyle} onClick={(e) => { changeVisibility(e, true) }}>
-        <div className='relative group p-1 flex items-center'>
-            <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 left-2 bg-white rounded-full" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(-1)}}>
+        <div className='relative group flex items-center'>
+            <button name="arrow" className={arrowStyle + ' left-2'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(-1)}}>
                 <div id="arrow"  className="my-0 mx-auto">&#10094;</div>
             </button>
-            <div className={"relative overflow-hidden bg-gray-500/20 flex duration-500 rounded-xl "}>
+            <div className={"relative overflow-hidden bg-gray-500/20 flex duration-500 rounded-xl " + (isFullSCreen === true ? ' h-[100vh] ' : '')}>
                 {exitButton}
                 {cachedPictures}
             </div>
-            <button name="arrow" className="z-10 invisible absolute group-hover:visible flex items-center w-10 h-10 right-2 bg-white rounded-full" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(+1)}}>
+            <button name="arrow" className={arrowStyle + ' right-2'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(+1)}}>
                 <div id="arrow" className="my-0 mx-auto">&#10095;</div>
             </button>
         </div>
