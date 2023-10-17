@@ -22,7 +22,7 @@ export default async function Home()
       </div>
     </div>
 
-    <ul className="lg:grid lg:grid-cols-2 lg:flex-wrap block w-full justify-items-center">
+    <ul className="bg-inherit	lg:grid lg:grid-cols-2 lg:flex-wrap block w-full justify-items-center">
       {ads}
     </ul>
   </>

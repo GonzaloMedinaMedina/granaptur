@@ -13,7 +13,7 @@ export default function RootLayout({
       <body style={{backgroundColor: 'rgb(200 218 234)'}}>
         <NavBar/>
         <hr className='border-black/20'></hr>
-        <main>
+        <main className='bg-inherit	'>
           {children}
           <div className='h-[100px] bg-[#8c9bb3]'></div>
         </main>
