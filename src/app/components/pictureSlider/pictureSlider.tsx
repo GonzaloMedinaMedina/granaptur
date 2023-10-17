@@ -49,8 +49,9 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, fullScreen = 
 
     const getPictures = useCallback((): ReactNode => 
     {
+        const pictureSize = (isFullSCreen === true ? ' h-[100vh] ' : (isFullSCreen === null && automaticSlider === false ? ' max-h-[320px]' : ' '));
         const objectFit = isFullSCreen ? ' object-contain ' : ' object-cover '
-        const imageCss = 'relative min-w-full float-left flex-1 -left-[100%] ' + objectFit;
+        const imageCss = 'relative min-w-full float-left flex-1 -left-[100%] ' + objectFit + pictureSize;
 
         let previousPicture = sliderIndex.current - 1 < 0 ? pictures.length-1 : sliderIndex.current - 1,
             currentPicture = sliderIndex.current,
@@ -114,7 +115,7 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, fullScreen = 
             <button name="arrow" className={arrowStyle + ' left-2'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(-1)}}>
                 <div id="arrow"  className="text-black my-0 mx-auto">&#10094;</div>
             </button>
-            <div className={"relative overflow-hidden bg-gray-500/20 flex duration-500 rounded-xl " + (isFullSCreen === true ? ' h-[100vh] ' : '')}>
+            <div className={"relative overflow-hidden bg-gray-500/20 flex duration-500 rounded-xl "}>
                 {exitButton}
                 {cachedPictures}
             </div>
