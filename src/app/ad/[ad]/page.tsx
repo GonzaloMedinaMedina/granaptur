@@ -14,7 +14,7 @@ export default async function AdPage({params}: {params: {ad: string}})
     });
 
     return (
-        <div className="m-10 rounded-xl bg-[#7197b3] items-center flex-col flex">
+        <div className="m-1 md:m-10 rounded-xl bg-[#7197b3] items-center flex-col flex">
             <AdTitle title={adInfo.title}/>
             <div className='lg:w-[80%]'>
                 <SlidePicture pictures={adInfo.pictures} fullScreen={false} automaticSlider={false}/>

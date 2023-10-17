@@ -112,14 +112,14 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, fullScreen = 
     return <div className={cssStyle} onClick={(e) => { changeVisibility(e, true) }}>
         <div className='relative group flex items-center'>
             <button name="arrow" className={arrowStyle + ' left-2'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(-1)}}>
-                <div id="arrow"  className="my-0 mx-auto">&#10094;</div>
+                <div id="arrow"  className="text-black my-0 mx-auto">&#10094;</div>
             </button>
             <div className={"relative overflow-hidden bg-gray-500/20 flex duration-500 rounded-xl " + (isFullSCreen === true ? ' h-[100vh] ' : '')}>
                 {exitButton}
                 {cachedPictures}
             </div>
             <button name="arrow" className={arrowStyle + ' right-2'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDirection(+1)}}>
-                <div id="arrow" className="my-0 mx-auto">&#10095;</div>
+                <div id="arrow" className="text-black my-0 mx-auto">&#10095;</div>
             </button>
         </div>
         {footerText}
