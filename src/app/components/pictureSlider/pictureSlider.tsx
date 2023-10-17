@@ -30,7 +30,7 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, fullScreen = 
             if (timeoutRef.current)   
                 clearTimeout(timeoutRef.current);
         
-            timeoutRef.current = setTimeout(() => setDirection(+1), 2000);
+            timeoutRef.current = setTimeout(() => setDirection(+1), 3000);
 
             return () => { resetTimeout(); }
         }
