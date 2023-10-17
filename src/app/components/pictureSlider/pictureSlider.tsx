@@ -44,7 +44,7 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, fullScreen = 
 
     const getExitButton = useCallback((): ReactNode => 
     {
-        return isFullSCreen ? <button onClick={(e) => {changeVisibility(e, false)}} className="z-10 absolute top-5 right-10 w-[64px] h-[64px] bg-white rounded-full"><div className="-z-2 relative text-4xl text-center align-middle">&#10005;</div></button> : ''; 
+        return isFullSCreen ? <button onClick={(e) => {changeVisibility(e, false)}} className="text-black z-10 absolute top-5 right-10 w-[64px] h-[64px] bg-white rounded-full"><div className="-z-2 relative text-4xl text-center align-middle">&#10005;</div></button> : ''; 
     }, [isFullSCreen])
 
     const getPictures = useCallback((): ReactNode => 
