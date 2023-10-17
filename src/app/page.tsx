@@ -14,7 +14,7 @@ export default async function Home()
 
   return (
   <>
-    <h1 className="text-center text-6xl text-semibold antialiased m-5">Granada Apartamentos Turísticos</h1>
+    <h1 className="text-black text-center text-6xl text-semibold antialiased m-5">Granada Apartamentos Turísticos</h1>
 
     <div className="flex justify-center">
       <div className="shadow-container flex flex-col items-center border-adblueback bg-adblueback/50 sm:m-10 m-1 sm:p-5 p-1 rounded-xl lg:w-[970px] w-full">

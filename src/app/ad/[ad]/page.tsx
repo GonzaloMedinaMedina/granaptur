@@ -24,7 +24,7 @@ export default async function AdPage({params}: {params: {ad: string}})
                 {addAndApartmentInfo}
             </div>
             <div className="bg-[#dbe8f5] rounded-xl sm:p-5 p-1 sm:m-20 m-5 shadow-container">
-                {adInfo.description.map((d: string) => { return <><p>{d}</p><br></br></>})}
+                {adInfo.description.map((d: string) => { return <><p className='text-black '>{d}</p><br></br></>})}
             </div>
         </div>
     )

@@ -38,7 +38,7 @@ const Ad: React.FC<iAd> = ({adInfo}) =>
       <div className='flex flex-col'>
         <SlidePicture pictures={pictures} automaticSlider={false} fullScreen={null}/>
         <br className='clear-both' />
-        <div className='text-center p-2'>{adInfo.guests} huéspedes · {adInfo.rooms} habitaciones · {adInfo.beds} camas · {adInfo.restroom} baños</div>
+        <div className='text-black text-center p-2'>{adInfo.guests} huéspedes · {adInfo.rooms} habitaciones · {adInfo.beds} camas · {adInfo.restroom} baños</div>
         {/* <div className="sm:grid sm:grid-cols-2" key={Id}>
           <div className='justify-self-center	p-1.5 m-1 bg-amber-200 rounded-xl w-fit'>
             <svg className='w-[32px] h-[32px]'>
@@ -51,7 +51,7 @@ const Ad: React.FC<iAd> = ({adInfo}) =>
             </svg>
           </div>
         </div> */}
-        <div className='self-center text-xl p-2'>Precio aproximado: {adInfo.price}€ noche</div>
+        <div className='text-black self-center text-xl p-2'>Precio aproximado: {adInfo.price}€ noche</div>
       </div>
     </a>
   );

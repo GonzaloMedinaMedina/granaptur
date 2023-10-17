@@ -81,7 +81,7 @@ const SlidePicture: FunctionComponent<iSlidePicture> = ({pictures, fullScreen = 
     {
         if (text.length > 0)
         {
-            const footerTextCss = 'text-center font-semibold text-2xl relative min-w-full float-left object-cover flex-1 -left-[100%]';
+            const footerTextCss = 'text-black text-center font-semibold text-2xl relative min-w-full float-left object-cover flex-1 -left-[100%]';
 
             let previousPicture = sliderIndex.current - 1 < 0 ? pictures.length-1 : sliderIndex.current - 1,
             currentPicture = sliderIndex.current,
