@@ -14,7 +14,7 @@ export default async function AdPage({params}: {params: {ad: string}})
     });
 
     return (
-        <div className="m-1 md:m-10 rounded-xl bg-[#7197b3] items-center flex-col flex">
+        <div className="m-1 md:m-10 rounded-xl bg-adblueback/30 items-center flex-col flex">
             <AdTitle title={adInfo.title}/>
             <div className='lg:w-[80%]'>
                 <SlidePicture pictures={adInfo.pictures} fullScreen={false} automaticSlider={false}/>
@@ -23,7 +23,7 @@ export default async function AdPage({params}: {params: {ad: string}})
             <div className="inline-flex">
                 {addAndApartmentInfo}
             </div>
-            <div className="bg-[#dbe8f5] rounded-xl sm:p-5 p-1 sm:m-20 m-5 shadow-container">
+            <div className="bg-white rounded-xl sm:p-5 p-1 sm:m-20 m-5 shadow-container">
                 {adInfo.description.map((d: string) => { return <><p className='text-black '>{d}</p><br></br></>})}
             </div>
         </div>
